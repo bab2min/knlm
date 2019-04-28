@@ -194,6 +194,7 @@ namespace knlm
 			void optimize()
 			{
 				map<_WType, int32_t> tNext = move(next);
+				memset(&bakedNext, 0, sizeof(bakedNext));
 				bakedNext = BakedMap<_WType, int32_t>{ tNext.begin(), tNext.end() };
 				baked = true;
 			}

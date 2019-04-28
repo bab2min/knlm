@@ -22,7 +22,7 @@ modules = [Extension('knlm_c',
 setup(
     name='knlm',
 
-    version='0.1.0',
+    version='0.1.1',
 
     description='Modified Kneser-ney Smoothing Language Model',
     long_description=long_description,

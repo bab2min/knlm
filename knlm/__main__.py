@@ -12,6 +12,6 @@ while 1:
     sent = input('>> ').strip().split()
     if sent:
         ll = mdl.evaluateSent(sent)
-        print("ll: %g, avg ll: &g" % (ll, ll / (len(sent) + 1)))
+        print("ll: %g, avg ll: %g" % (ll, ll / (len(sent) + 1)))
         for c, l in zip(sent, mdl.evaluateEachWord(sent)):
             print('%s: %g' % (c, l))
