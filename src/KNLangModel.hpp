@@ -218,13 +218,6 @@ namespace knlm
 			static Node readFromStream(istream& str, size_t leafDepth = 3);
 		};
 	protected:
-
-		const function<Node*()> nodesAlloc = [this]()
-		{
-			nodes.emplace_back();
-			return &nodes.back();
-		};
-
 		vector<Node> nodes;
 		size_t orderN;
 		size_t vocabSize = 0;
@@ -313,7 +306,11 @@ namespace knlm
 		prepareCapacity(len * orderN);
 		for (size_t i = 0; i < len; ++i)
 		{
-			nodes[0].increaseCount(seq + i, seq + min(i + orderN, len), orderN - 1, nodesAlloc);
+			nodes[0].increaseCount(seq + i, seq + min(i + orderN, len), orderN - 1, [this]()
+			{
+				nodes.emplace_back();
+				return &nodes.back();
+			});
 		}
 		vocabSize = max((size_t)*max_element(seq, seq + len) + 1, vocabSize);
 	}

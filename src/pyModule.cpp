@@ -524,11 +524,11 @@ static PyObject* knlm__getattr(PyObject* self, PyObject* args)
 		size_t wsize = PyLong_AsLong(wsizeObj);
 		Py_DECREF(instObj);
 		Py_DECREF(wsizeObj);
-		if (name == "order"s)
+		if (name == string("order"))
 		{
 			return Py_BuildValue("n", inst->getOrder());
 		}
-		else if (name == "vocabs"s)
+		else if (name == string("vocabs"))
 		{
 			return Py_BuildValue("n", inst->getVocabSize());
 		}
