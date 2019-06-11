@@ -5,7 +5,7 @@ from setuptools.command.install import install
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+with open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 sources = []
@@ -13,7 +13,7 @@ for f in os.listdir(os.path.join(here, 'src')):
     if f.endswith('.cpp'): sources.append('src/' + f)
 
 if os.name == 'nt': cargs = ['/O2', '/MT', '/Gy']
-else: cargs = ['-std=c++1y', '-O3', '-fpermissive']
+else: cargs = ['-std=c++11', '-O3', '-fpermissive']
 modules = [Extension('knlm_c',
                     libraries = [],
                     sources = sources,
@@ -22,7 +22,7 @@ modules = [Extension('knlm_c',
 setup(
     name='knlm',
 
-    version='0.1.1',
+    version='0.1.2',
 
     description='Modified Kneser-ney Smoothing Language Model',
     long_description=long_description,

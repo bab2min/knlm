@@ -2,3 +2,4 @@ build/
 dist/
 knlm.egg-info/
 *.pyc
+build_windows.bat
